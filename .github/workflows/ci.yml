@@ -12,14 +12,15 @@ on:
 jobs:
   build:
     strategy:
-      platform:
-      - name: Linux (amd64)
-        os: ubuntu-latest
-      - name: macOS (amd64, arm64)
-        os: macos-latest
-        cmake_options: -DCMAKE_OSX_ARCHITECTURES=x86_64;arm64
-      - name: Windows (amd64)
-        os: windows-latest
+      matrix:
+        platform:
+        - name: Linux (amd64)
+          os: ubuntu-latest
+        - name: macOS (amd64, arm64)
+          os: macos-latest
+          cmake_options: -DCMAKE_OSX_ARCHITECTURES=x86_64;arm64
+        - name: Windows (amd64)
+          os: windows-latest
 
     name: "Build: ${{ matrix.platform.name }}"
     runs-on: ${ {matrix.platform.os }}
