@@ -23,7 +23,7 @@ jobs:
           os: windows-latest
 
     name: "Build: ${{ matrix.platform.name }}"
-    runs-on: ${ {matrix.platform.os }}
+    runs-on: ${{matrix.platform.os}}
 
     steps:
     - name: Checkout
